@@ -37,7 +37,7 @@
                         <th>Aksi</th>
                     </tr>
                     <?php
-                    // menampilkan barang
+                    
                     $sql = "SELECT * FROM tbarang order by id_barang desc";
                     $query = mysqli_query($koneksi, $sql);
                     $no = 1;
