@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Sidebar</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: flex;
+        transition: margin-left 0.3s;
+      }
+      #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        min-height: 100vh;
+        background-color: #343a40;
+        color: white;
+        transition: all 0.3s;
+      }
+      #sidebar.active {
+        margin-left: -250px;
+      }
+      #content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-left 0.3s;
+      }
+      #sidebar .nav-link {
+        color: white;
+      }
+      #sidebar .nav-link:hover {
+        background-color: #495057;
+      }
+      #sidebar.active + #content {
+        margin-left: 0;
+      }
+      .logo {
+        height: 200px;
+        width: 20px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sidebar" class="bg-dark">
+      <div class="logo">
+        <img src="/asset/logo.svg" alt="" />
+      </div>
+      <h4 class="p-3">App Inventaris</h4>
+      <nav class="nav flex-column">
+        <div class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </div>
+        <div class="nav-item">
+          <a
+            class="nav-link"
+            href="#servicesSubmenu"
+            data-toggle="collapse"
+            aria-expanded="false"
+            class="dropdown-toggle"
+            >Input Data</a
+          >
+          <ul class="collapse list-unstyled" id="servicesSubmenu">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Input Data Masuk</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Input Data Keluar</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-link" href="#">Service</a>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </div>
+      </nav>
+    </div>
+
+    <div id="content">
+      <button class="btn btn-primary" id="sidebarToggle">Menu</button>
+      <h1>Main Content</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
+        odio. Praesent libero. Sed cursus ante dapibus diam.
+      </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#sidebarToggle").on("click", function () {
+          $("#sidebar").toggleClass("active");
+        });
+      });
+    </script>
+  </body>
+</html>
